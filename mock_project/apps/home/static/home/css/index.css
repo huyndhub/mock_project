@@ -1,0 +1,68 @@
+.main-content .container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 1080px;
+    background: #FFF;
+}
+
+.main-content .detail {
+    position: relative;
+    padding: 5px;
+}
+
+.main-content .card {
+    background: #004290;
+    color: white;
+    border-radius: 0;
+    flex-direction: inherit;
+    align-items: center;
+    min-height: 130px;
+    padding: 0 10px;
+}
+
+.main-content .card:hover {
+    cursor: pointer;
+}
+
+.main-content .card .card-body {
+    padding: 0;
+    margin-left: 10px;
+    font-family: Garamond, 'Times New Roman', Georgia, serif;
+    font-style: italic;
+}
+
+.main-content .ranking-info-title {
+    padding: 15px 5px;
+    background: #506cab;
+    color: #FFF;
+    text-align: center;
+    margin-bottom: 0;
+    font-family: Garamond, 'Times New Roman', Georgia, serif;
+    font-style: italic;
+}
+
+.main-content .ranking-info-content {
+    padding: 0 15px;
+    border: 2px solid #666;
+    border-top: 0;
+    font-family: Garamond, 'Times New Roman', Georgia, serif;
+    font-style: italic;
+}
+
+.main-content .ranking-info-content .info-1 {
+    border: 1px solid #dee2e6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.main-content .ranking-info-content .group-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.main-content .ranking-info-content .group-button a {
+    width: 49%;
+    background-color: #004290;
+}

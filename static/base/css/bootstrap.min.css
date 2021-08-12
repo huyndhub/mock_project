@@ -1018,7 +1018,7 @@ progress {
   }
 }
 .row {
-  --mdb-gutter-x: 1.5rem;
+  --mdb-gutter-x: 0;
   --mdb-gutter-y: 0;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -13,81 +13,72 @@
     {# CSS #}
     <link rel="stylesheet" type="text/css" href="{% static "base/css/base.css" %}">
 
+    {% block extra_style %}{% endblock %}
+
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
+<body style="background: #f1f5f9;">
     {#  navbar logged  #}
     <header>
       <!-- Sidenav -->
-        <div id="sidenav-1" class="sidenav" data-mdb-color="dark" role="navigation" data-mdb-hidden="false" data-mdb-accordion="true" style="height: 90.4vh" >
-            <a class="ripple d-flex justify-content-center py-3" href="#!" data-mdb-ripple-color="primary">
-                <img id="MDB-logo" src="https://fujitechjsc.com/wp-content/themes/html5blank-stable/assets/img/newlogo.png" alt="MDB Logo" draggable="false" height="35">
-            </a>
-            <ul class="sidenav-menu">
-                <li class="sidenav-item">
-                    <a class="sidenav-link active">
-                        <i class="fas fa-home fa-fw me-3"></i><span>Report order</span>
-                    </a>
-                </li>
-            </ul>
-            <hr>
+        {% if not is_home_page %}
+        <div id="sidenav-1" class="sidenav sidenav-1 sidenav-1-width" data-mdb-color="dark" role="navigation" data-mdb-hidden="false" data-mdb-accordion="true">
             <ul class="sidenav-menu">
                 <li class="sidenav-item">
                     <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Video</span>
-                    </a>
-                </li>
-
-                <li class="sidenav-item">
-                    <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Youtube</span>
-                    </a>
-                </li>
-
-                <li class="sidenav-item">
-                    <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Semina</span>
-                    </a>
-                </li>
-
-                <li class="sidenav-item">
-                    <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Image</span>
+                        <i class="fas fa-home fa-fw me-3"></i><span>report</span>
                     </a>
                 </li>
                 <li class="sidenav-item">
                     <a class="sidenav-link">
-                        <i class="fas fa-history fa-fw me-3"></i><span>History email</span>
+                        <i class="fas fa-home fa-fw me-3"></i><span>compare item</span>
                     </a>
                 </li>
-            </ul>
-            <hr>
-            <ul class="sidenav-menu">
                 <li class="sidenav-item">
                     <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Video</span>
+                        <i class="fas fa-home fa-fw me-3"></i><span>find special price</span>
                     </a>
                 </li>
-
                 <li class="sidenav-item">
                     <a class="sidenav-link">
-                        <i class="fas fa-caret-square-right fa-fw me-3"></i><span>Youtube</span>
+                        <i class="fas fa-home fa-fw me-3"></i><span>register with asp</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link">
+                        <i class="fas fa-home fa-fw me-3"></i><span>seminar videos</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link">
+                        <i class="fas fa-home fa-fw me-3"></i><span>join seminar</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link">
+                        <i class="fas fa-home fa-fw me-3"></i><span>use services</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link">
+                        <i class="fas fa-home fa-fw me-3"></i><span>introducing AF</span>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a class="sidenav-link">
+                        <i class="fas fa-home fa-fw me-3"></i><span>view email AF</span>
                     </a>
                 </li>
             </ul>
         </div>
+        {% endif %}
         <!-- Sidenav -->
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav id="main-navbar" class="navbar main-navbar navbar-expand-lg navbar-light bg-white {% if not is_home_page %}main-navbar-width{% else %}out-line{% endif %}">
         <!-- Container wrapper -->
             <div class="container-fluid">
-                <!-- Search form -->
-                <form class="d-none d-md-flex" style="margin-left: 19%">
-                    <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search'
-                           style="min-width: 225px;" />
-                    <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-                </form>
+                <a href="{% url 'home_page' %}"><img height="43" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></a>
                 <!-- Right links -->
                 <ul class="navbar-nav d-flex align-items-center flex-row">
                     <li class="nav-item me-3">
@@ -141,19 +132,33 @@
         <!-- Navbar -->
     </header>
     {#  Content  #}
-    {% block content %}
-    {% endblock content %}
+    <section class="main-content {% if not is_home_page %}main-content-margin{% endif %}">
+        {% block content %}{% endblock content %}
+    </section>
 
 {#  footer  #}
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start {% if not is_home_page %}footer-width{% endif %}">
+        <div class="footer-left">
+            <div class="logo">
+                <a href="{% url 'home_page' %}"><img height="35" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"></a>
+            </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><i class="fas fa-angle-right" aria-hidden="true"></i><a href="/contact/">Liên Lạc</a></li>
+                    <li><i class="fas fa-angle-right" aria-hidden="true"></i><a href="/law/">Luật</a></li>
+                    <li><i class="fas fa-angle-right" aria-hidden="true"></i><a href="/agreement/">Thỏa Thuận</a></li>
+                    <li><i class="fas fa-angle-right" aria-hidden="true"></i><a href="/privacy/">Chính Sách Bảo Mật</a></li>
+                    <li><i class="fas fa-angle-right" aria-hidden="true"></i><a href="/qa/">Q&amp;A</a></li>
+                </ul>
+            </nav>
+        </div>
         <!-- Copyright -->
-        <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.05);">
+        <div class="p-2" style="float: right">
             © 2021 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Fujitech.com</a>
+            <a class="text-reset fw-bold" href="https://google.com/" target="_blank">google.com</a>
         </div>
         <!-- Copyright -->
     </footer>
-    {% block boby %}{% endblock %}
 
 </body>
 <script src="https://mdbootstrap.com/api/snippets/static/download/MDB5-Free_3.8.1/js/mdb.min.js"></script>
